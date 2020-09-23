@@ -36,7 +36,7 @@ namespace Hydro_Injector_v2
         System.Drawing.Color colour = System.Drawing.Color.Red;
 
         // HTTPS Info
-        string domain = "https://www.hydrogenmods.co.uk/";
+        string domain = "https://www.domain.co.uk/";
 
         //Stores the mod version it'll inject
         string hydrogen_version = "";
@@ -76,8 +76,8 @@ namespace Hydro_Injector_v2
             DoubleBuffered = true;
 
             //Create Auto Update Thread
-            auto_update_thread = new System.Threading.Thread(new System.Threading.ThreadStart(auto_update_thread_func));
-            auto_update_thread.Start();
+            //auto_update_thread = new System.Threading.Thread(new System.Threading.ThreadStart(auto_update_thread_func));
+            //auto_update_thread.Start();
 
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             string exe_directory_file = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -139,19 +139,19 @@ namespace Hydro_Injector_v2
 
             //Show link for discord server when server when down
             string Hydro_Down_Notice_Location = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            Hydro_Down_Notice_Location += "\\Hydrogen\\HydroDiscord.goth";
+            Hydro_Down_Notice_Location += "\\Hydrogen\\HydroDiscord.dat";
 
             if (!File.Exists((Hydro_Down_Notice_Location)))
             {
-                HydroDownForm DownForm = new HydroDownForm();
-                DownForm.Show();
+                //HydroDownForm DownForm = new HydroDownForm();
+                //DownForm.Show();
             }
 
             // Get Version
-            WebClient client = new WebClient();
-            hydrogen_version = client.DownloadString(domain + "Authentication/Detection/CheckVersion.php?Type=2");
-            lblVersion.Text = "Hydrogen Menu " + hydrogen_version;
-            lblLoaderVersion.Text = lblLoaderVersion.Text + loader_version;
+            //WebClient client = new WebClient();
+            //hydrogen_version = client.DownloadString(domain + "Authentication/Detection/CheckVersion.php?Type=2");
+            //lblVersion.Text = "Hydrogen Menu " + hydrogen_version;
+            //lblLoaderVersion.Text = lblLoaderVersion.Text + loader_version;
         }
 
         private void auto_update_thread_func()
@@ -164,7 +164,7 @@ namespace Hydro_Injector_v2
                 {
                     client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
                     client.UseDefaultCredentials = true;
-                    client.Credentials = new NetworkCredential("Tom", "Yeet");
+                    client.Credentials = new NetworkCredential("Username", "Password");
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                     client.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
                     client.Headers.Add("Cache-Control", "no-cache");
@@ -201,7 +201,7 @@ namespace Hydro_Injector_v2
                 // Exit
                 Application.Exit();
                 MessageBox.Show("Unable to auto update injector, please download the newest version from our website");
-                System.Diagnostics.Process.Start("https://www.hydrogenmods.co.uk/");
+                System.Diagnostics.Process.Start("https://www.urlHere.co.uk/");
                 Application.Exit();
             }
         }
@@ -239,7 +239,7 @@ namespace Hydro_Injector_v2
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
                 client.UseDefaultCredentials = true;
-                client.Credentials = new NetworkCredential("Tom", "Yeet");
+                client.Credentials = new NetworkCredential("Username", "Password");
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 client.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
                 client.Headers.Add("Cache-Control", "no-cache");
@@ -293,7 +293,7 @@ namespace Hydro_Injector_v2
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
                 client.UseDefaultCredentials = true;
-                client.Credentials = new NetworkCredential("Tom", "Yeet");
+                client.Credentials = new NetworkCredential("Username", "Password");
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 client.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
                 client.Headers.Add("Cache-Control", "no-cache");
@@ -310,9 +310,6 @@ namespace Hydro_Injector_v2
             // Generate File Name
             string dll_start = get_random_string(8);
             string dll_end = get_random_string(3);
-
-            //"Test";//
-            //"Test2";//
 
             DllName = dll_start + "." + dll_end;
 
@@ -422,7 +419,7 @@ namespace Hydro_Injector_v2
 
             // Create Save File
             string SaveLocation = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            SaveLocation += "\\Hydrogen\\information_1.err"; // 346qtrfl.error
+            SaveLocation += "\\Hydrogen\\information_1.err";
 
             if (File.Exists(SaveLocation))
             {
@@ -437,7 +434,7 @@ namespace Hydro_Injector_v2
             }
 
             SaveLocation = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            SaveLocation += "\\Hydrogen\\information_2.err"; // 346qtrfl.error
+            SaveLocation += "\\Hydrogen\\information_2.err"; 
 
             if (File.Exists(SaveLocation))
             {
@@ -559,12 +556,6 @@ namespace Hydro_Injector_v2
             var finalString = new String(stringChars);
             return finalString;
         }
-
-        //
-        //
-        // Every thing below this should be for cosmetic reasons, not functional
-        //
-        //
 
         private void animateIn(Panel e, Form f)
         {
@@ -758,28 +749,6 @@ namespace Hydro_Injector_v2
             if (animateInBool == true)
             {
                 selectedPanel.Left -= stepSize;
-
-                //if(selectedPanel.Left <= (selectedForum.Width / 6) && selectedPanel.Left > (selectedForum.Width / 7))
-                //{
-                //    stepSize = 9;
-                //}
-                //else if (selectedPanel.Left < (selectedForum.Width / 7) && selectedPanel.Left > (selectedForum.Width / 8))
-                //{
-                //    stepSize = 8;
-                //}
-                //else if (selectedPanel.Left < (selectedForum.Width / 8) && selectedPanel.Left > (selectedForum.Width / 9))
-                //{
-                //    stepSize = 7;
-                //}
-                //else if (selectedPanel.Left < (selectedForum.Width / 9) && selectedPanel.Left > (selectedForum.Width / 10))
-                //{
-                //    stepSize = 6;
-                //}
-                //else if (selectedPanel.Left < (selectedForum.Width / 10) && selectedPanel.Left > 0)
-                //{
-                //    stepSize = 5;
-                //}
-
                 if (selectedPanel.Left <= 0) //stepSize)
                 {
                     selectedPanel.Left = 0;
@@ -920,7 +889,7 @@ namespace Hydro_Injector_v2
 
         private void btnJoinDiscord_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://discordapp.com/invite/7VwfT39");
+            System.Diagnostics.Process.Start("https://discordapp.com/invite/");
         }
 
         private void pbxInjectGrad_Click(object sender, EventArgs e)

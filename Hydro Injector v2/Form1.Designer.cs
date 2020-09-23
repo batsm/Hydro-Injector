@@ -336,7 +336,6 @@
             this.btnKeybinds.TabIndex = 25;
             this.btnKeybinds.Text = "Edit Keybinds";
             this.btnKeybinds.UseVisualStyleBackColor = true;
-            this.btnKeybinds.Visible = false;
             this.btnKeybinds.Click += new System.EventHandler(this.btnKeybinds_Click);
             // 
             // btnJoinDiscord
@@ -380,7 +379,6 @@
             // 
             // TimerCheckAccount
             // 
-            this.TimerCheckAccount.Enabled = true;
             this.TimerCheckAccount.Interval = 1000;
             this.TimerCheckAccount.Tick += new System.EventHandler(this.TimerCheckAccount_Tick_1);
             // 
@@ -414,7 +412,6 @@
             // 
             // tester_updater
             // 
-            this.tester_updater.Enabled = true;
             this.tester_updater.Interval = 500;
             this.tester_updater.Tick += new System.EventHandler(this.tester_updater_Tick);
             // 
